@@ -36,10 +36,10 @@
   <!-- Left navbar links -->
   <ul class="navbar-nav mx-auto">
     <li class="nav-item d-none d-sm-inline-block">
-      <a href="<?php echo base_url(); ?>post" class="nav-link">Tipe Kamar</a>
+      <a href="<?php echo base_url('tipe_kamar'); ?>" class="nav-link">Tipe Kamar</a>
     </li>
     <li class="nav-item d-none d-sm-inline-block">
-      <a href="<?php echo base_url(); ?>daftar_user" class="nav-link">Nomor Kamar</a>
+      <a href="<?php echo base_url('nomor_kamar'); ?>" class="nav-link">Nomor Kamar</a>
     </li>
     <li class="nav-item d-none d-sm-inline-block">
       <a href="<?php echo base_url(); ?>daftar_user" class="nav-link">Pemesanan</a>
@@ -75,7 +75,7 @@
     <div class="row mt-3">
         <div class="col-md-6">
             <div class="alert alert-success alert-dismissible fade show" role="alert">
-                Data User <strong>Berhasil</strong> <?= $this->session->flashdata('flash'); ?>
+                Data tipe kamar <strong >Berhasil</strong> <?= $this->session->flashdata('flash'); ?>
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         </div>
@@ -85,67 +85,66 @@
 
 </div>
 
-<div class="row">
-          <div class="col-12">
-            <div class="card">
-              <div class="card-header">
-                
-                <h3 class="card-title">Daftar User</h3>
 
-                <div class="card-tools">
-                    <div class="input-group input-group-sm" style="width: 150px;">
-                        <div class="row m-2">   
-                            <a href="<?php echo base_url()?>daftar_user/tambah" class="btn btn-primary">tambah user</a>   
-                        </div>
-                    </div>
+
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header">
+        
+        <h3 class="card-title">Tipe kamar</h3>
+
+        <div class="card-tools">
+            <div class="input-group input-group-sm" style="width: 150px;">
+                <div class="row m-2">   
+                    <a href="<?php echo base_url();?>tipe_kamar/TambahTipe" class="btn btn-primary">tambah</a>   
                 </div>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body table-responsive p-0">
-                <table class="table table-hover text-nowrap">
-                  <thead>
-                    <tr>
-                      <th>ID</th>
-                      <th>Nama</th>
-                      <th>Email</th>
-                      <th>Role id</th>
-                      <th>Nomor Telepon</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <?php foreach($tipe_kamar as $type) : ?>
-                    <tr>
-                        <td><?= $tpye['id']; ?></td>
-                        <td><?= $type['tipe']; ?></td>
-                        <td><?= $type['deskripsi']; ?></td>
-                        <td><?= $type['harga']; ?></td>
-                        <td><?= $type['created_at']; ?></td>
-                        <td><?= $type['updated_at']; ?></td>
-                        <a 
-                            href="<?= base_url(); ?>daftar_user/hapus/<?= $usr['id']; ?>" 
-                            class="badge text-bg-danger float-end text-decoration-none" 
-                            onclick="return confirm('anda yakin ingin menghapus data?');"
-                        >
-                            hapus
-                        </a>
-                        <a href="<?php echo base_url()?>daftar_user/update" class=" me-3 badge text-bg-success float-end text-decoration-none" >update</a> 
-                        </td>
-                    </tr>
-                    <?php endforeach; ?>
-                  </tbody>
-                </table>
-              </div>
-              <!-- /.card-body -->
             </div>
-            <!-- /.card -->
-          </div>
         </div>
+      </div>
+      <!-- /.card-header -->
+      <div class="card-body table-responsive p-0">
+        <table class="table table-hover text-nowrap">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Tipe</th>
+              <th>Deskripsi</th>
+              <th>Harga</th>
+              <th>Created At</th>
+              <th>Updated At</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php foreach($tipe_kamar as $type) : ?>
+              <tr>
+                <td><?= $type['id']; ?></td>
+                <td><?= $type['tipe']; ?></td>
+                <td><?= $type['deskripsi']; ?></td>
+                <td><?= $type['harga']; ?></td>
+                <td><?= $type['created_at']; ?></td>
+                <td><?= $type['updated_at']; ?></td>
+                <td>
+                  <a href="<?= base_url('tipe_kamar/hapusTipe/' . $type['id']); ?>" class="badge text-bg-danger float-end text-decoration-none"" onclick="return confirm('Anda yakin ingin menghapus data?');">hapus</a>
+                  <a href="<?= base_url('tipe_kamar/UpdateTipe/' . $type['id']);?>" class="me-3 badge text-bg-success float-end text-decoration-none">update</a>
+                </td>
+              </tr>
+            <?php endforeach; ?>
+          </tbody>
+        </table>
+      </div>
+    <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+  </div>
+</div>
 
         </div><!-- /.container-fluid -->
         </div>
       <!-- /.content -->
         </div>
     <!-- /.content-wrapper -->
+     
       
     <footer class="main-footer">
         <div class="float-right d-none d-sm-block">

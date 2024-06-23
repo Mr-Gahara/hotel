@@ -47,7 +47,6 @@
     <li class="nav-item d-none d-sm-inline-block">
       <a href="<?= base_url(); ?>post" class="nav-link">Pembayaran</a>
     </li>
-  </ul>
 </nav>
 
 <!-- Content Wrapper. Contains page content -->
@@ -67,12 +66,86 @@
   <!-- Main content -->
   <div class="content">
     <div class="container-fluid">
-        
-    </div><!-- /.container-fluid -->
+
+  
+
+
+<div class="container m-0">
+    <?php if ($this->session->flashdata('flash') ) : ?>
+    <div class="row mt-3">
+        <div class="col-md-6">
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                Data kamar <strong >Berhasil</strong> <?= $this->session->flashdata('flash'); ?>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <?php endif; ?>
+
+</div>
+
+
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Nomor Kamar</h3>
+        <div class="card-tools">
+            <div class="input-group input-group-sm" style="width: 150px;">
+                <div class="row m-2">   
+                    <a href="<?php echo base_url();?>nomor_kamar/TambahNomorKamar" class="btn btn-primary">tambah</a>   
+                </div>
+            </div>
+        </div>
+      </div>
+      <div class="card-body table-responsive p-0">
+        <table class="table table-hover text-nowrap">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nomor Kamar</th>
+              <th>Tipe Kamar</th>
+              <th>Status</th>
+              <th>Created At</th>
+              <th>Updated At</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php if (!empty($kamar)) : ?>
+              <?php foreach($kamar as $kmr) : ?>
+                <tr>
+                  <td><?= $kmr['id']; ?></td>
+                  <td><?= $kmr['no_kamar']; ?></td>
+                  <td><?= $kmr['tipe_kamar_tipe']; ?></td>
+                  <td><?= $kmr['status']; ?></td>
+                  <td><?= $kmr['created_at']; ?></td>
+                  <td><?= $kmr['updated_at']; ?></td>
+                  <td>
+                    <a href="<?= base_url('nomor_kamar/hapusNomorKamar/' . $kmr['id']); ?>" class="badge text-bg-danger float-end text-decoration-none" onclick="return confirm('Anda yakin ingin menghapus data?');">hapus</a>
+                    <a href="<?= base_url('nomor_kamar/UpdateNomorKamar/' . $kmr['id']); ?>" class="me-3 badge text-bg-success float-end text-decoration-none">update</a>
+                  </td>
+                </tr>
+              <?php endforeach; ?>
+            <?php else : ?>
+              <tr>
+                <td colspan="7" class="text-center">Data not available</td>
+              </tr>
+            <?php endif; ?>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+        </div><!-- /.container-fluid -->
         </div>
       <!-- /.content -->
         </div>
     <!-- /.content-wrapper -->
+     
       
     <footer class="main-footer">
         <div class="float-right d-none d-sm-block">

@@ -34,7 +34,8 @@
                         </div>
 
                         <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
+                        <button type="submit" class="btn btn-secondary"><a style="text-decodation: none; color:white" href="<?= base_url()?>daftar_user/index">back</a></button>
+                    </fom>
                 </div>
             </div>
 

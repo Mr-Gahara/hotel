@@ -8,7 +8,7 @@ class Test_model extends CI_model {
 
     public function get_test_data() {
         return $this->db->get('users')->result_array(); 
-        return $this->db->get('tipe_kamar')->result_array(); 
+
     }
 
 
