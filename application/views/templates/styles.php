@@ -4,18 +4,18 @@
     * {
     margin: 0;
     padding: 0;
-    font-family: 'Arial';
+    font-family: 'Inknut Antiqua';
     color: black;
     }
 
     header {
         position: fixed;
         top: 0;
-        background-color: #1B0C1A;
+        background-color: #171717;
         inset-inline-end: 0;
         inset-inline-start: 0;
         z-index: 100;
-        color: #FADCD5;
+        color: #FFFFFF;
     }
 
     nav > .logo > h4 {
@@ -23,7 +23,7 @@
         font-weight: 600;
         font-size: 21px;
         letter-spacing: 1px;
-        color: #FADCD5;
+        color: #FFFFFF;
     }
 
     header > nav {
@@ -51,7 +51,7 @@
         font-size: 20px;
         font-weight: 500;
         letter-spacing: 1px;
-        color: #FADCD5;
+        color: #FFFFFF;
 
     }
 
@@ -64,7 +64,7 @@
     ul li button {
         border: none;
         border-radius: 10px;
-        background-color: #823760;
+        background-color: #A47D31;
         color: white;
         font-size: 16px;
         letter-spacing: 1px;
@@ -75,9 +75,14 @@
     }
 
     ul li button:hover {
-        background-color: #622a49;
+        background-color: #A47D31;
         color: rgb(233, 233, 233);
         transition: all 0.15s ease-in-out;
+    }
+
+    ul li button:active {
+        background-color: #A47D31;
+        color: white;
     }
 
     /* Specific styles for additional consistency */
@@ -95,7 +100,7 @@
     }
 
     h1 {
-        color: #89404f;
+        color: #A47D31;
         text-align: center;
         font-size: 34px;
     }
@@ -112,7 +117,7 @@
     .text > button {
     border: none;
     border-radius: 10px;
-    background-color: #823760;
+    background-color: #A47D31;
     color: white;
     font-size: 16px;
     letter-spacing: 1px;
@@ -123,7 +128,7 @@
     }
 
     .text > button:hover {
-        background-color: #622a49;
+        background-color: #A47D31;
         color: rgb(233, 233, 233);
         transition: all 0.15s ease-in-out;
     }
@@ -132,8 +137,40 @@
     .text > button:nth-of-type(2) {
         margin-left: 10px;
     }
-</style>
 
+    .nav-btn {
+        border: none;
+        font-family: 'Arial';
+        font-weight: 600;
+        font-size: 21px;
+        letter-spacing: 1px;
+        color: #FADCD5;
+        border-radius: 10px;
+        background-color: #A47D31;
+        color: white;
+        font-size: 16px;
+        letter-spacing: 1px;
+        font-weight: bold;
+        padding: 15px 25px; /* Consistent padding */
+        cursor: pointer;
+        margin: 10px 0; /* Consistent margin */
+    }
+
+    .nav-btn:hover {
+        background-color: #A47D31;
+        color: rgb(233, 233, 233);
+        transition: all 0.15s ease-in-out;
+    }
+
+    .nav-btn:active {
+        background-color: #A47D31;
+        color: white;
+    }
+
+    .nav-btn:nth-of-type(2) {
+        margin-left: 10px;
+    }
+</style>
 
 <!-- home section -->
 <style>
@@ -173,6 +210,83 @@
         text-align: center;
         width: 100%; 
         padding: 0 20px; /* Add padding for better readability on smaller screens */
+    }
+</style>
+
+
+
+<!-- reservation page -->
+<style>
+
+    .reservation-page {
+        padding: 2%;
+    }
+
+    .title {
+        margin-top: 20vh;
+        margin-bottom: 5vh;
+        display: flex;
+        padding: 0px 100px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 10px;
+        flex-shrink: 0;
+    }
+    .card-1 {
+        display: flex;
+        padding: 15px;
+        align-items: center;
+    }
+
+    .card-content {
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+        gap: 150px;
+        flex-shrink: 0;
+    }
+
+    .room-type, .room-desc {
+        flex: 1; /* Allow room-type and room-desc to grow equally */
+    }
+
+    .room-title h5, .room-title h6, .room-title p, .room-desc p {
+        margin: 0;
+    }
+
+
+    .room-type-img {
+        width: 373px;
+        height: auto;
+        flex-shrink: 0;
+    }
+
+    .room-type {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 30px;
+        flex-shrink: 0;
+    }
+
+    .room-title {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 12px;
+        flex-shrink: 0;
+    }
+
+    .room-desc {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 12px;
+        flex-shrink: 0;
     }
 </style>
 

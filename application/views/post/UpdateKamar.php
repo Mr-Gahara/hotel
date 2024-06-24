@@ -1,19 +1,18 @@
 <div class="container">
     <div class="row mt-3">
         <div class="col-md-6">
-
             <div class="card">
                 <div class="card-header">
-                    Tambah kamar
+                    Update Tipe Kamar
                 </div>
                 <div class="card-body">
                     <?php if(validation_errors()) : ?>
-                        <div class="alert alert-warning" role="alert"> <?= validation_errors(); ?> </div>
+                        <div class="alert alert-warning" role="alert"><?= validation_errors(); ?></div>
                     <?php endif; ?>
-                    <form action="<?= base_url('nomor_kamar/TambahNomorKamar') ?>" method="post">
+                    <form action="<?= base_url('nomor_kamar/TambahNomorKamar/' . $kamar['id']) ?>" method="post">
                         <div class="mb-3">
                             <label for="no_kamar" class="form-label">Nomor Kamar</label>
-                            <input type="number" class="form-control" id="no_kamar" name="no_kamar" required>
+                            <input type="number" class="form-control" id="no_kamar" name="no_kamar" value="<?=$kamar['no_kamar']?>" required>
                         </div>
                         <div class="mb-3">
                             <label for="tipe" class="form-label">Tipe Kamar</label>

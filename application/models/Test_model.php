@@ -11,13 +11,10 @@ class Test_model extends CI_model {
 
     }
 
-
-
     public function hapus_datauser($id) {
         $this->db->where('id', $id);
         $this->db->delete('users');
     }
-
 
     public function get_user_by_id($id) {
         return $this->db->get_where('users', ['id' => $id])->row_array();

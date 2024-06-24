@@ -49,7 +49,7 @@ class login extends CI_Controller {
                     ];
                     $this->session->set_userdata($data);
                     if ($users['role_id'] == 1) {
-                        redirect('daftar_user');
+                        redirect('dashboard');
                     } else  {
                         redirect('home');
                     }

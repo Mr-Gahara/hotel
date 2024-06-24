@@ -3,8 +3,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class NomorKamar_model extends CI_Model {
 
-    public function get_all_nomor_kamar() {
-        return $this->db->get('kamar')->result_array();
+    public function get_all_tipe_kamar() {
+        $query = $this->db->get('tipe_kamar');
+        return $query->result_array();
     }
     
     public function get_nomor_kamar_by_id($id) {
@@ -17,11 +18,6 @@ class NomorKamar_model extends CI_Model {
         $this->db->join('tipe_kamar', 'kamar.id_tipe_kamar = tipe_kamar.id');
         $query = $this->db->get();
         return $query->result_array();
-    }
-
-    public function get_all_tipe() {
-        $query = $this->db->get('tipe_kamar');
-        return $query->result();
     }
 
     public function insert_nomor_kamar($data) {

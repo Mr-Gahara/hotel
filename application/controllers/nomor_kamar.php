@@ -18,21 +18,21 @@ class nomor_kamar extends CI_Controller {
     }
 
     public function TambahNomorKamar() {
-        $this->form_validation->set_rules('no_kamar', 'Nomor Kamar', 'required');
-        $this->form_validation->set_rules('id_tipe_kamar', 'ID Tipe Kamar', 'required|numeric');
+        $this->form_validation->set_rules('no_kamar', 'Nomor_Kamar', 'required|is_unique[kamar.no_kamar]');
+        $this->form_validation->set_rules('tipe', 'Tipe', 'required');
         $this->form_validation->set_rules('status', 'Status', 'required');
 
         if ($this->form_validation->run() == FALSE) {
             $data['judul'] = 'Tambah Nomor Kamar';
-            $data['nomor_kamar'] = $this->NomorKamar_model->get_all_tipe();
+            $data['tipe_kamar'] = $this->NomorKamar_model->get_all_tipe_kamar();
 
             $this->load->view('templates/header', $data);
-            $this->load->view('post/TambahKamar');
+            $this->load->view('post/TambahKamar', $data);
             $this->load->view('templates/footer');
         } else {
             $data = array(
                 'no_kamar' => $this->input->post('no_kamar'),
-                'id_tipe_kamar' => $this->input->post('id_tipe_kamar'),
+                'id_tipe_kamar' => $this->input->post('tipe'),
                 'status' => $this->input->post('status'),
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
@@ -51,21 +51,22 @@ class nomor_kamar extends CI_Controller {
     }
 
     public function UpdateNomorKamar($id) {
-        $this->form_validation->set_rules('no_kamar', 'Nomor Kamar', 'required');
-        $this->form_validation->set_rules('id_tipe_kamar', 'ID Tipe Kamar', 'required|numeric');
+        $this->form_validation->set_rules('no_kamar', 'Nomor_Kamar', 'required|is_unique[kamar.no_kamar]');
+        $this->form_validation->set_rules('tipe', 'Tipe', 'required');
         $this->form_validation->set_rules('status', 'Status', 'required');
 
         if ($this->form_validation->run() == FALSE) {
             $data['judul'] = 'Update Nomor Kamar';
+            $data['tipe_kamar'] = $this->NomorKamar_model->get_all_tipe_kamar();
             $data['kamar'] = $this->NomorKamar_model->get_nomor_kamar_by_id($id);
 
             $this->load->view('templates/header', $data);
-            $this->load->view('post/edit_nomor_kamar', $data);
+            $this->load->view('post/UpdateKamar', $data);
             $this->load->view('templates/footer');
         } else {
             $data = array(
                 'no_kamar' => $this->input->post('no_kamar'),
-                'id_tipe_kamar' => $this->input->post('id_tipe_kamar'),
+                'id_tipe_kamar' => $this->input->post('tipe'),
                 'status' => $this->input->post('status'),
                 'updated_at' => date('Y-m-d H:i:s')
             );

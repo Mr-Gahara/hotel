@@ -17,11 +17,12 @@
 
   <!-- Right navbar links -->
   <ul class="navbar-nav ml-auto">
-    <li class="nav-item">
-      <a class="nav-link"><?= $this->session->userdata('nama'); ?></a>
-    </li>
-    <li class="nav-item">
-      <a href="<?= base_url('logout'); ?>" class="nav-link">Log out</a>
+    <li>
+    <select class="form-select" aria-label="Default select example" onchange="window.location.href=this.value">
+      <option selected disabled><?= $this->session->userdata('nama'); ?></option>
+      <option value="<?php echo site_url('home'); ?>">hotel page</option>
+      <option value="<?php echo site_url('logout'); ?>">Log out</option>
+    </select>
     </li>
     <li class="nav-item">
       <a class="nav-link" data-widget="fullscreen" href="#" role="button">
