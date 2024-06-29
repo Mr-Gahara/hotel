@@ -3,21 +3,16 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header">
-                    tambah Pembayaran
+                    update Pembayaran
                 </div>
                 <div class="card-body">
                     <?php if(validation_errors()) : ?>
                         <div class="alert alert-warning" role="alert"><?= validation_errors(); ?></div>
                     <?php endif; ?>
-                    <form action="<?= base_url('pembayaran_kamar/TambahPembayaran' . (isset($pembayaran['id']) ? '/' . $pembayaran['id'] : '')) ?>" method="post">
+                    <form action="<?= base_url('pembayaran_kamar/UpdatePembayaran' . (isset($pembayaran['id']) ? '/' . $pembayaran['id'] : '')) ?>" method="post">
                         <div class="mb-3">
                             <label for="id_pemesanan" class="form-label">ID Pemesanan</label>
-                            <select class="form-select" name="id_pemesanan" aria-label="Default select example">
-                                <option selected disabled>Pilih ID pemesanan</option>
-                                <?php foreach ($pemesanan as $pesan): ?>
-                                    <option value="<?= $pesan['id']; ?>"><?= $pesan['id']; ?></option>
-                                <?php endforeach; ?>
-                            </select>
+                            <input type="number" class="form-control" id="id_pemesanan" name="id_pemesanan" value="<?= isset($pembayaran['id_pemesanan']) ? $pembayaran['id_pemesanan'] : ''; ?>" readonly>
                         </div>
 
                         <div class="mb-3">

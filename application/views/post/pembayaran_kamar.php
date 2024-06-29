@@ -76,7 +76,7 @@
     <div class="row mt-3">
         <div class="col-md-6">
             <div class="alert alert-success alert-dismissible fade show" role="alert">
-                Data pemesanan <strong >Berhasil</strong> <?= $this->session->flashdata('flash'); ?>
+                Data pembayaran <strong >Berhasil</strong> <?= $this->session->flashdata('flash'); ?>
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         </div>
@@ -104,7 +104,7 @@
           <thead>
             <tr>
               <th>ID</th>
-              <th>ID Pembayaran</th>
+              <th>ID Pemesanan</th>
               <th>User</th>
               <th>Total pembayaran</th>
               <th>Tanggal Pembayaran</th>
@@ -115,16 +115,16 @@
             <?php if (!empty($pembayaran)) : ?>
               <?php foreach($pembayaran as $bayar) : ?>
                 <tr>
-                  <td><?= $bayar['id']; ?></td>
-                  <td><?= $bayar['id_pembayaran']; ?></td>
-                  <td><?= $bayar['user_pembayaran']; ?></td>
-                  <td><?= $bayar['total_harga']; ?></td>
-                  <td><?= $bayar['tanggal_pembayaran']; ?></td>
-                  <td><?= $bayar['status_pembayaran']; ?></td>
+                  <td><?= $bayar->id; ?></td>
+                  <td><?= $bayar->id_pemesanan; ?></td>
+                  <td><?= $bayar->user_pembayaran; ?></td>
+                  <td><?= $bayar->total_harga; ?></td>
+                  <td><?= $bayar->tanggal_pembayaran; ?></td>
+                  <td><?= $bayar->status_pembayaran; ?></td>
 
                   <td>
-                    <a href="<?= base_url('pemesanan_kamar/HapusPemesanan/' . $bayar['id']); ?>" class="badge text-bg-danger float-end text-decoration-none" onclick="return confirm('Anda yakin ingin menghapus data?');">hapus</a>
-                    <a href="<?= base_url('pemesanan_kamar/UpdatePemesanan/' . $bayar['id']); ?>" class="me-3 badge text-bg-success float-end text-decoration-none">update</a>
+                    <a href="<?= base_url('pembayaran_kamar/HapusPembayaran/' . $bayar->id); ?>" class="badge text-bg-danger float-end text-decoration-none" onclick="return confirm('Anda yakin ingin menghapus data?');">hapus</a>
+                    <a href="<?= base_url('pembayaran_kamar/UpdatePembayaran/' . $bayar->id); ?>" class="me-3 badge text-bg-success float-end text-decoration-none">update</a>
                   </td>
                 </tr>
               <?php endforeach; ?>
@@ -139,6 +139,8 @@
     </div>
   </div>
 </div>
+
+
 
 
 

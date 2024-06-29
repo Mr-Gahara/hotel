@@ -20,7 +20,7 @@ class daftar_user extends CI_Controller {
         $this->load->view('templates/footer');
     }
 
-    public function tambah() {
+    public function tambah($id = null) {
 
         $data['judul'] = 'form tambah user';
 
@@ -58,7 +58,7 @@ class daftar_user extends CI_Controller {
     }
 
 
-    public function update($id) {
+    public function update($id = null) {
 
         $data['judul'] = 'form update user';
         $data['user'] = $this->Test_model->get_user_by_id($id);
@@ -72,7 +72,7 @@ class daftar_user extends CI_Controller {
         if ($this->form_validation->run() == FALSE) {
             
             $this->load->view('templates/header', $data);
-            $this->load->view('daftar_user/update');
+            $this->load->view('daftar_user/update', $data);
             $this->load->view('templates/footer');
         } else {
             

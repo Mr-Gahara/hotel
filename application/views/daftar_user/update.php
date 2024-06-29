@@ -4,7 +4,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    Udpate data user
+                    Update data user
                 </div>
                 
                 <div class="card-body">
@@ -12,9 +12,10 @@
                         <div class="alert alert-warning" role="alert"> <?= validation_errors(); ?> </div>
                     <?php endif; ?>
                     <form action="" method="post">
+
                         <div class="mb-3">
                             <label for="nama" class="form-label">nama</label>
-                            <input type="text" class="form-control" id="nama" name="nama" required>
+                            <input type="text" class="form-control" id="nama" name="nama" value="<?= isset($users['nama']) ? $users['nama'] : ''; ?>">
                         </div>
 
                         <div class="mb-3">
@@ -34,6 +35,7 @@
                         </div>
 
                         <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="button" class="btn btn-secondary"><a style="text-decoration: none; color:white" href="<?= base_url('daftar_user')?>">Back</a></button>
                     </form>
                 </div>
             </div>
