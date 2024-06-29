@@ -28,9 +28,8 @@ class NomorKamar_model extends CI_Model {
         $this->db->delete('kamar', array('id' => $id));
     }
 
-
     public function update_nomor_kamar($id, $data) {
         $this->db->where('id', $id);
         $this->db->update('kamar', $data);
-    }
+    }  
 }

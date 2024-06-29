@@ -18,7 +18,7 @@ class nomor_kamar extends CI_Controller {
     }
 
     public function TambahNomorKamar() {
-        $this->form_validation->set_rules('no_kamar', 'Nomor_Kamar', 'required|is_unique[kamar.no_kamar]');
+        $this->form_validation->set_rules('no_kamar', 'Nomor_Kamar', 'required');
         $this->form_validation->set_rules('tipe', 'Tipe', 'required');
         $this->form_validation->set_rules('status', 'Status', 'required');
 
@@ -51,7 +51,7 @@ class nomor_kamar extends CI_Controller {
     }
 
     public function UpdateNomorKamar($id) {
-        $this->form_validation->set_rules('no_kamar', 'Nomor_Kamar', 'required|is_unique[kamar.no_kamar]');
+        $this->form_validation->set_rules('no_kamar', 'Nomor_Kamar');
         $this->form_validation->set_rules('tipe', 'Tipe', 'required');
         $this->form_validation->set_rules('status', 'Status', 'required');
 

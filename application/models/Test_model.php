@@ -11,6 +11,8 @@ class Test_model extends CI_model {
 
     }
 
+
+
     public function hapus_datauser($id) {
         $this->db->where('id', $id);
         $this->db->delete('users');

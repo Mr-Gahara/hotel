@@ -43,10 +43,10 @@
         <a href="<?php echo base_url('nomor_kamar'); ?>" class="nav-link">Nomor Kamar</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="<?php echo base_url(); ?>daftar_user" class="nav-link">Pemesanan</a>
+        <a href="<?php echo base_url('pemesanan_kamar'); ?>" class="nav-link">Pemesanan</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="<?= base_url(); ?>post" class="nav-link">Pembayaran</a>
+        <a href="<?= base_url('pembayaran_kamar'); ?>" class="nav-link">Pembayaran</a>
       </li>
   </nav>
 
