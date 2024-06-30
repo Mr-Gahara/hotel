@@ -33,6 +33,7 @@
                     <div class="row">
                         <div class="col-12">
                             <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                            <button type="button" class="btn btn-secondary btn-block" onclick="window.location.href='<?= base_url('home'); ?>'">Back</button>
                         </div>
                     </div>
                 </form>

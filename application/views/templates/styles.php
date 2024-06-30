@@ -319,18 +319,9 @@
         color: white;
     }
 
-    .reservation-page {
-        display: flex;
-        /* width: 1430px;
-        height: 1841px; */
-        padding: 10px;
-        justify-content: center;
-        align-items: flex-start;
-        gap: 50px;
-        flex-shrink: 0;
-    }
 
-    .content {
+
+    /* .content {
         display: flex;
         width: 1430px;
         height: 1841px;
@@ -339,17 +330,16 @@
         align-items: flex-start;
         gap: 50px;
         flex-shrink: 0;
-    }
+    } */
 
-    .card-content {
+    /* .card-content {
         display: flex;
-        /* width: 635px;
-        height: 1785px; */
+
         padding: 50px 0px;
         flex-direction: column;
         align-items: center;
         flex-shrink: 0;
-    }
+    } */
 
     .feature-list {
         display: flex;
