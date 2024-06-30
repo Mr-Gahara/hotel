@@ -8,53 +8,37 @@
     </nav>
 </header>
 
+
+
 <section class="reservation-page">
 
     <div class="title">
         <h1>Reservasi</h1>
         <p>silahkan pilih tipe kamar sesuai kebutuhan</p>
     </div>
-    
-    <div class="card-1 card">
-      <div class="card-content card-body">
-        <img class="room-type-img" src="<?= base_url('assets/img/image.jpg'); ?>" alt="">
-        <div class="room-type">
-            <div class="room-title">
-                <h5>Harris simple room</h5>
-                <h6>Rp. 700.000,-</h6>
-                <p>per malam</p>
-            </div>
-            <button>pilih</button>
-        </div>
-        <div class="room-desc">
-            <p>26.0 m² room area</p>
-            <p>1 Bed Area</p>
-            <p>1 Bathroom</p>
-            <p>King-size Bed/Twin-size Bed</p>
-            <p>Max 2 Guesses</p>
-        </div>
-      </div>
-    </div>
 
+    <?php foreach ($tipe_kamar as $type): ?>
     <div class="card-1 card">
-      <div class="card-content card-body">
-        <img class="room-type-img" src="<?= base_url('assets/img/image.jpg'); ?>" alt="">
-        <div class="room-type">
-            <div class="room-title">
-                <h5>Harris simple room</h5>
-                <h6>Rp. 700.000,-</h6>
-                <p>per malam</p>
+        <div class="card-content card-body">
+            <img class="room-type-img" src="<?= base_url('assets/img/image.jpg'); ?>" alt="">
+            <div class="room-type">
+                <div class="room-title">
+                    <h5>Harris <?= htmlspecialchars($type['tipe']); ?> room</h5>
+                    <h6>Rp. <?= number_format($type['harga']); ?>,-</h6>
+                    <p>per malam</p>
+                </div>
+                <form action="<?= base_url('daftar_kamar'); ?>" method="get">
+                    <input type="hidden" name="tipe" value="<?= htmlspecialchars($type['tipe']); ?>">
+                    <button class="tipe-btn" type="submit">pilih</button>
+                </form>
+                
             </div>
-            <button>pilih</button>
+            <div class="room-desc">
+                <p><?= htmlspecialchars($type['deskripsi']); ?></p>
+                <!-- Additional room details can be added here -->
+            </div>
         </div>
-        <div class="room-desc">
-            <p>26.0 m² room area</p>
-            <p>1 Bed Area</p>
-            <p>1 Bathroom</p>
-            <p>King-size Bed/Twin-size Bed</p>
-            <p>Max 2 Guesses</p>
-        </div>
-      </div>
     </div>
+    <?php endforeach; ?>
 
 </section>

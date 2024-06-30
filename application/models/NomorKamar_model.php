@@ -7,6 +7,20 @@ class NomorKamar_model extends CI_Model {
         $query = $this->db->get('tipe_kamar');
         return $query->result_array();
     }
+
+    public function get_all_nomor_kamar() {
+        $query = $this->db->get('kamar');
+        return $query->result_array();
+    }
+
+    public function get_nomor_kamar_by_type($tipe) {
+        $this->db->select('kamar.*');
+        $this->db->from('kamar');
+        $this->db->join('tipe_kamar', 'kamar.id_tipe_kamar = tipe_kamar.id');
+        $this->db->where('tipe_kamar.tipe', $tipe);
+        $query = $this->db->get();
+        return $query->result_array();
+    }
     
     public function get_nomor_kamar_by_id($id) {
         return $this->db->get_where('kamar', array('id' => $id))->row_array();

@@ -112,7 +112,7 @@
                         >
                             hapus
                         </a>
-                        <a href="<?php echo base_url()?>daftar_user/update" class=" me-3 badge text-bg-success float-end text-decoration-none" >update</a> 
+                        <a href="<?= base_url('daftar_user/update/' . $usr['id']);?>" class="me-3 badge text-bg-success float-end text-decoration-none">update</a>
                         </td>
                     </tr>
                     <?php endforeach; ?>

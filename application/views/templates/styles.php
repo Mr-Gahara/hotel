@@ -280,12 +280,97 @@
         flex-shrink: 0;
     }
 
+    .room-title > h5 {
+        color: #000;
+
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 150%;
+    }
+
+    .room-title > h6 {
+        color: #FF5E1F;
+        font-family: "Inknut Antiqua";
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 100%;
+    }
+
     .room-desc {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
         gap: 12px;
+        flex-shrink: 0;
+    }
+
+    .tipe-btn {
+        display: flex;
+        width: 269px;
+        padding: 10px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        border-radius: 10px;
+        background: #000;
+        color: white;
+    }
+
+    .reservation-page {
+        display: flex;
+        /* width: 1430px;
+        height: 1841px; */
+        padding: 10px;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 50px;
+        flex-shrink: 0;
+    }
+
+    .content {
+        display: flex;
+        width: 1430px;
+        height: 1841px;
+        padding: 10px;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 50px;
+        flex-shrink: 0;
+    }
+
+    .card-content {
+        display: flex;
+        /* width: 635px;
+        height: 1785px; */
+        padding: 50px 0px;
+        flex-direction: column;
+        align-items: center;
+        flex-shrink: 0;
+    }
+
+    .feature-list {
+        display: flex;
+        width: 579px;
+        height: 202px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 12px;
+        flex-shrink: 0;
+    }
+
+    .column {
+        display: flex;
+        width: 579px;
+        height: 227px;
+
+        line-height: 150%; /* 30px */
+        justify-content: flex-start;
+        align-items: center;
+        gap: 10px;
         flex-shrink: 0;
     }
 </style>

@@ -41,7 +41,7 @@ class daftar_user extends CI_Controller {
                 'nama' => $this->input->post('nama'),
                 'email' => $this->input->post('email'),
                 'password' => password_hash($this->input->post('password'), PASSWORD_BCRYPT),
-                'no_phone' => $this->input->post('no-telp')
+                'no_hp' => $this->input->post('no-telp')
             ];
 
             $this->Test_model->registrasi_data($formData);
@@ -60,30 +60,31 @@ class daftar_user extends CI_Controller {
 
     public function update($id = null) {
 
-        $data['judul'] = 'form update user';
-        $data['user'] = $this->Test_model->get_user_by_id($id);
-
         $this->form_validation->set_rules('nama','Nama', 'required');
         $this->form_validation->set_rules('email','Email', 'required|valid_email');
-        $this->form_validation->set_rules('password','Password', 'required');
+        $this->form_validation->set_rules('role_id','Role_id', 'required');
         $this->form_validation->set_rules('no-telp','Nomor Telepon', 'required|numeric');
 
-
+        
+        
         if ($this->form_validation->run() == FALSE) {
+            $data['judul'] = 'update data user';
+            $data['users'] = $this->Test_model->get_user_by_id($id);
+            $data['user_role'] = $this->Test_model->get_all_role($id);
             
             $this->load->view('templates/header', $data);
             $this->load->view('daftar_user/update', $data);
             $this->load->view('templates/footer');
         } else {
             
-            $formData = [
-                'name' => $this->input->post('nama'),
+            $updateData = array(
+                'nama' => $this->input->post('nama'),
                 'email' => $this->input->post('email'),
-                'password' => password_hash($this->input->post('password'), PASSWORD_BCRYPT),
-                'no_phone' => $this->input->post('no-telp')
-            ];
+                'role_id' => $this->input->post('role_id'),
+                'no_hp' => $this->input->post('no-telp')
+            );
 
-            $this->Test_model->update_data($id, $formData);
+            $this->Test_model->update_data($id, $updateData);
             $this->session->set_flashdata('flash','diupdate');
             redirect('daftar_user');
             
