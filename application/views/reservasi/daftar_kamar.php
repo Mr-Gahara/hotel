@@ -25,8 +25,11 @@
                     <h6><?= number_format($kmr['no_kamar']); ?></h6>
                     <p>status: <?= htmlspecialchars($kmr['status']);?></p>
                 </div>
-                <button class="tipe-btn">pesan</button>
-                
+                <?php if ($kmr['status'] == 'available'): ?>
+                    <button class="tipe-btn" onclick="window.location.href='<?= base_url('laman_pesan'); ?>'">pesan</button>
+                <?php else: ?>
+                    <button class="tipe-btn" style="background-color: #747474; border-style: none;" disabled>pesan</button>
+                <?php endif; ?>
             </div>
         </div>
     </div>

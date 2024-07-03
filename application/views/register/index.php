@@ -69,7 +69,7 @@
                 </form>
 
                 <div class="login-text mt-3">
-                    <a href="<?php echo base_url(); ?>login" class="text-center">I already have an account? Login!</a>
+                    <a href="<?php echo base_url(); ?>login" class="text-center">Already have an account? Login!</a>
                 </div>
 
             </div>

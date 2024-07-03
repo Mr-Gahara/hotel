@@ -320,48 +320,131 @@
     }
 
 
-
-    /* .content {
-        display: flex;
-        width: 1430px;
-        height: 1841px;
-        padding: 10px;
-        justify-content: center;
-        align-items: flex-start;
-        gap: 50px;
-        flex-shrink: 0;
-    } */
-
-    /* .card-content {
-        display: flex;
-
-        padding: 50px 0px;
-        flex-direction: column;
-        align-items: center;
-        flex-shrink: 0;
-    } */
-
-    .feature-list {
-        display: flex;
-        width: 579px;
-        height: 202px;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-        gap: 12px;
-        flex-shrink: 0;
-    }
-
-    .column {
+    /* .column-list {
         display: flex;
         width: 579px;
         height: 227px;
 
-        line-height: 150%; /* 30px */
+        line-height: 150%;
         justify-content: flex-start;
         align-items: center;
         gap: 10px;
         flex-shrink: 0;
-    }
+    } */
+
+    /* Section Styles */
+.form-page-pemesanan {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    padding-top: 228px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-content {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    gap: 50px;
+    
+}
+
+.card-1 {
+    flex: 1;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+}
+
+.card-1 .content-inside {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card-1 .title-room h5 {
+    font-size: 1.5em;
+    margin: 20px 0;
+}
+
+.card-1 .room-type-img-pemesanan {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.card-1 .feature-list {
+    margin: 20px 0;
+}
+
+.card-1 .feature-list h6 {
+    font-size: 1.2em;
+    padding-bottom: 20px;
+}
+
+.card-1 .feature-list   ul  li {
+    color: #828282;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%; /* 30px */
+    
+}
+
+.card-1 .column {
+    display: flex;
+    gap: 20px;
+}
+
+.card-1 .column p {
+    flex: 1;
+}
+
+/* Form Styles */
+.form-side {
+    flex: 1;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+form .mb-3 {
+    margin-bottom: 20px;
+}
+
+.form-label {
+
+    
+}
+
+.form-input {
+    width: 100%; /* Adjust the width as needed */
+    height: 50px; /* Adjust the height as needed */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    margin: 5px 0;
+}
+
+form .form-check {
+    margin: 40px 0;
+}
+
+form .form-check-label {
+    margin-left: 10px;
+}
+
+form .btn {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 15px 20px;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 8px;
+}
+
+
+
 </style>
 
