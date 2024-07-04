@@ -26,7 +26,10 @@
                     <p>status: <?= htmlspecialchars($kmr['status']);?></p>
                 </div>
                 <?php if ($kmr['status'] == 'available'): ?>
-                    <button class="tipe-btn" onclick="window.location.href='<?= base_url('laman_pesan'); ?>'">pesan</button>
+                    <form action="<?= base_url('laman_pesan'); ?>" method="get">
+                        <input type="hidden" name="no_kamar" value="<?= htmlspecialchars($kmr['no_kamar']); ?>">
+                        <button class="tipe-btn" type="submit">pilih</button>
+                    </form>
                 <?php else: ?>
                     <button class="tipe-btn" style="background-color: #747474; border-style: none;" disabled>pesan</button>
                 <?php endif; ?>

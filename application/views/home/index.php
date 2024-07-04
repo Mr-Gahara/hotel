@@ -37,8 +37,6 @@
     </nav>
 </header>
 
-
-
 <main>
     <section class="home-section" id="home">
         <div class="banner">

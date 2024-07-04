@@ -87,8 +87,17 @@
             </div>
         </div>
 
+        <?php if ($this->session->userdata('logged_in')) : ?>
         <div class="form-side">
+            <?php if (isset($validation_errors) && !empty($validation_errors)) : ?>
+                <div class="alert alert-danger" role="alert">
+                    <?= $validation_errors; ?>
+                </div>
+            <?php endif; ?>
             <form action="<?= base_url('laman_pesan/TambahPemesanan/' . (isset($pemesanan['id']) ? $pemesanan['id'] : '')) ?>" method="post">
+                <input type="hidden" name="no_kamar" value="<?= isset($_GET['no_kamar']) ? number_format($_GET['no_kamar']) : ''; ?>">
+
+                
                 <div class="mb-3">
                     <label for="tgl_check_in" class="form-label">Tanggal CheckIn</label>
                     <input type="date" class="form-input form-control" id="tgl_check_in" name="tgl_check_in" value="<?= isset($pemesanan['tgl_check_in']) ? $pemesanan['tgl_check_in'] : ''; ?>" required>
@@ -101,17 +110,12 @@
 
                 <div class="mb-3">
                     <label for="nama" class="form-label">Nama</label>
-                    <input type="text" class="form-input form-control" id="nama" name="nama" value="<?= isset($users['nama']) ? $users['nama'] : ''; ?>" readonly>
+                    <input type="text" class="form-input form-control" id="nama" name="nama" value="<?= $this->session->userdata('nama'); ?>" readonly>
                 </div>
 
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Email address</label>
-                    <input type="email" class="form-input form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" value="<?= isset($users['email']) ? $users['email'] : ''; ?>" readonly>
-                </div>
-
-                <div class="mb-3">
-                    <label for="number" class="form-label">Nomor telepon</label>
-                    <input type="number" class="form-input form-control" id="number" name="no-telp" value="<?= isset($users['no_hp']) ? $users['no_hp'] : ''; ?>" readonly>
+                    <input type="email" class="form-input form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" value="<?= $this->session->userdata('email'); ?>" readonly>
                 </div>
 
                 <div class="form-check">
@@ -124,6 +128,7 @@
                 <button type="submit" class="btn btn-block btn-secondary">Submit</button>
             </form>
         </div>
+        <?php endif; ?>
 
 
               

@@ -8,13 +8,13 @@ class laman_pesan extends CI_Controller {
         $this->load->model('Test_model');
         $this->load->library('form_validation');
         $this->load->model('PemesananKamar_model');
-        
+        $this->load->library('session');
     }
     
     public function index($nama = '') {
         $data['nama'] = $nama;
         $data['judul'] = 'halaman pemesanan';
-        // $data['tipe_kamar'] = $this->TipeKamar_model->get_all_tipe_kamar();
+        $data['no_kamar'] = $this->input->get('no_kamar');
 
         $this->load->view('templates/header', $data);
         $this->load->view('reservasi/laman_pesan', $data); //cari folder home di folder views
@@ -26,31 +26,26 @@ class laman_pesan extends CI_Controller {
         $this->form_validation->set_rules('tgl_check_in', 'Tanggal_check_in', 'required');
         $this->form_validation->set_rules('tgl_check_out', 'Tanggal_check_out', 'required');
         $this->form_validation->set_rules('nama','Nama', 'required|trim');
-        $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email', [
-            'required' => 'The %s field is required.',
-            'valid_email' => 'Please enter a valid email address.'
-        ]);
-        $this->form_validation->set_rules('no-telp','Nomor Telepon', 'required|numeric');
+        $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
+        $this->form_validation->set_rules('no_kamar','No_kamar', 'required');
     
         if ($this->form_validation->run() == FALSE) {
             $data['judul'] = 'Tambah pemesanan';
             $data['kamar'] = $this->PemesananKamar_model->get_all_kamar();
-    
-            // Retrieve user data from session
-            $user_id = $this->session->userdata('user_id');
-            if ($user_id) {
-                $user_data = $this->Test_model->get_user_by_id_pemesanan($user_id);
-                $data['users'] = $user_data;
-            } else {
-                $data['users'] = $user_data; // or handle the case when user_id is not set
-            }
+            $data['validation_errors'] = validation_errors();
     
             $this->load->view('templates/header', $data);
             $this->load->view('reservasi/laman_pesan', $data);
             $this->load->view('templates/footer');
+            $this->load->view('templates/styles');
         } else {
+            $id_user = $this->session->userdata('id');
+            if (is_null($id_user)) {
+                log_message('error', 'User ID is null in session data');
+                show_error('User ID is not set in session data');
+                return;
+            }
             // Processing the form submission
-    
             $sarapan = $this->input->post('sarapan') == 'yes' ? 'yes' : 'no';
             $harga_sarapan = $sarapan == 'yes' ? 80000 : 0.00;
     
@@ -64,7 +59,7 @@ class laman_pesan extends CI_Controller {
     
             $data = array(
                 'id_kamar' => $id_kamar,
-                'id_user' => $user_id, // Use the user_id from session
+                'id_user' => $id_user,
                 'tgl_check_in' => $this->input->post('tgl_check_in'),
                 'tgl_check_out' => $this->input->post('tgl_check_out'),
                 'sarapan' => $sarapan,
@@ -81,7 +76,7 @@ class laman_pesan extends CI_Controller {
             $this->db->update('kamar', array('status' => 'unavailable'));
     
             $this->session->set_flashdata('flash', 'ditambahkan');
-            redirect('laman_pesan');
+            redirect('home');
         }
     }
     

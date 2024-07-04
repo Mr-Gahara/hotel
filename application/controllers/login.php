@@ -35,6 +35,7 @@ class login extends CI_Controller {
         $password = $this->input->post('password');
 
         $users = $this->db->get_where('users', ['email' => $email])->row_array();
+        $users = $this->db->get_where('users', ['no_hp' => $no_hp])->row_array();
 
         // jika user ada
         if ($users) {
@@ -42,12 +43,14 @@ class login extends CI_Controller {
                 // cek password
                 if (password_verify($password, $users['password'])) {
                     $data = [
+                        'id' => $users['id'],
                         'email' => $users['email'],
                         'nama' => $users['nama'],
                         'role_id' => $users['role_id'],
                         'logged_in' => TRUE,
                     ];
                     $this->session->set_userdata($data);
+                    $this->session->set_userdata('user_id', $user['id']);
                     if ($users['role_id'] == 1) {
                         redirect('dashboard');
                     } else  {
