@@ -8,6 +8,9 @@
     color: black;
     }
 
+    .home-section {
+        margin-bottom: 150px;
+    }
     header {
         position: fixed;
         top: 0;
@@ -119,12 +122,14 @@
     border-radius: 10px;
     background-color: #A47D31;
     color: white;
-    font-size: 16px;
+    font-size: 20px;
     letter-spacing: 1px;
     font-weight: bold;
     padding: 15px 25px; /* Consistent padding */
     cursor: pointer;
     margin: 10px 0; /* Consistent margin */
+    width: 207px;
+    height: 73px;
     }
 
     .text > button:hover {
@@ -210,6 +215,39 @@
         text-align: center;
         width: 100%; 
         padding: 0 20px; /* Add padding for better readability on smaller screens */
+        color: #FFF;
+        font-size: 32px;
+        font-weight: 600;
+        line-height: normal;
+    }
+
+    .banner-profile { 
+        padding: 0 15%; 
+        margin-top: 150px;
+    }
+
+    .banner-profile > .text {
+        flex-direction: column; 
+        justify-content: center; 
+        align-items: flex-start; 
+        gap: 24px; 
+        display: inline-flex;
+    }
+
+    .banner-profile > .text > h1 {
+        font-size: 48px;
+    }
+
+    .banner-profile > .text > p {
+        display: flex;
+        height: 461px;
+        flex-direction: column;
+        justify-content: center;
+        flex-shrink: 0;
+        align-self: stretch;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 150%; /* 30px */
     }
 </style>
 
@@ -444,7 +482,104 @@ form .btn {
     border-radius: 8px;
 }
 
+</style>
 
+<style>
+    .ammenities-section {
+        background: #171717;
+        padding: 100px 0;
+        display: flex;
+        justify-content: center;
 
+        flex-direction: column;
+        align-items: center;
+        gap: 100px;
+        flex-shrink: 0;
+    }
+
+    .costum-img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+</style>
+
+<style>
+    .local_area-section {
+        padding: 100px 0;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 100px;
+        flex-shrink: 0;
+    }
+
+    .areas {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 100px;
+    }
+
+    .areas > img {
+        width: 488px;
+        height: 535px;
+        border-radius: 50px;
+        object-fit: cover;
+    }
+
+    .area-desc {
+        display: flex;
+        width: 734px;
+        height: 535px;
+        padding: 10px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 50px;
+    }
+
+    .area-desc > p {
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+</style>
+
+<style>
+    .contact-section {
+        background: #171717;
+        padding: 100px 0;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 100px;
+        flex-shrink: 0;
+    }
+
+    .contact-list {
+        display: flex;
+        padding: 50px 103px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        flex-shrink: 0;
+    }
+
+    .inner-list {
+        display: flex;
+        padding: 10px;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        flex-shrink: 0;
+    }
+
+    .inner-list > a {
+        text-decoration: none;
+        color: white;
+    }
 </style>
 

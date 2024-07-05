@@ -1,6 +1,7 @@
 
     <!-- ./wrapper -->
 
+    
     <!-- jQuery -->
     <script src="<?= base_url('assets/admin');?>/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->

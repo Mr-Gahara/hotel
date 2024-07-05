@@ -35,7 +35,7 @@ class login extends CI_Controller {
         $password = $this->input->post('password');
 
         $users = $this->db->get_where('users', ['email' => $email])->row_array();
-        $users = $this->db->get_where('users', ['no_hp' => $no_hp])->row_array();
+        // $users = $this->db->get_where('users', ['no_hp' => $no_hp])->row_array();
 
         // jika user ada
         if ($users) {

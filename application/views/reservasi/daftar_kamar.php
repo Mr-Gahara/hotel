@@ -23,11 +23,11 @@
                 <div class="room-title">
                     <h5>nomor ruangan</h5>
                     <h6><?= number_format($kmr['no_kamar']); ?></h6>
-                    <p>status: <?= htmlspecialchars($kmr['status']);?></p>
+                    <p>status: <?= htmlspecialchars($kmr['status']); ?></p>
                 </div>
                 <?php if ($kmr['status'] == 'available'): ?>
                     <form action="<?= base_url('laman_pesan'); ?>" method="get">
-                        <input type="hidden" name="no_kamar" value="<?= htmlspecialchars($kmr['no_kamar']); ?>">
+                        <input type="hidden" name="no_kamar" value="<?= htmlspecialchars($kmr['id']); ?>">
                         <button class="tipe-btn" type="submit">pilih</button>
                     </form>
                 <?php else: ?>

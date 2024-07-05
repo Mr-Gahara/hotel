@@ -42,8 +42,14 @@ class pemesanan_kamar extends CI_Controller {
             $harga_kamar_result = $this->PemesananKamar_model->get_harga_by_kamar_id($id_kamar);
             $harga_kamar = $harga_kamar_result ? $harga_kamar_result : 0.00;
     
-            // Calculate total_harga
-            $total_harga = $harga_kamar + $harga_sarapan;
+            // Calculate the number of days between check-in and check-out
+            $tgl_check_in = new DateTime($this->input->post('tgl_check_in'));
+            $tgl_check_out = new DateTime($this->input->post('tgl_check_out'));
+            $interval = $tgl_check_in->diff($tgl_check_out);
+            $days = $interval->days;
+
+            // Calculate total_harga based on the number of days
+            $total_harga = ($harga_kamar * $days) + $harga_sarapan;
     
             $data = array(
                 'id_kamar' => $id_kamar,
