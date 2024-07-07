@@ -14,6 +14,7 @@ class reservasi extends CI_Controller {
             // If not logged in, redirect to the login page
             redirect('login');
         }
+        
         $data['nama'] = $nama;
         $data['judul'] = 'halaman reservasi';
         $data['tipe_kamar'] = $this->TipeKamar_model->get_all_tipe_kamar();

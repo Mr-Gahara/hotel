@@ -7,7 +7,7 @@
 
         <ul>
             <li><a href="#home">Home</a></li>
-            <li><a href="#ammenities">Amenities</a></li>
+            <li><a href="#ammenities">Facility</a></li>
             <li><a href="#local_area">Local Areas</a></li>
             <li><a href="#contact">Contact</a></li>
             <?php if ($this->session->userdata('logged_in')) : ?>

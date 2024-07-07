@@ -13,7 +13,7 @@
         <div class="card-1 card">
             <div class="content-inside card-body">
                 <div class="title-room">
-                    <h5>Harris Unique Room</h5>
+                    <h5>Harris Room</h5>
                 </div>
                 <img class="room-type-img-pemesanan" src="<?= base_url('assets/img/image.jpg'); ?>" alt="">
                 

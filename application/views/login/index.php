@@ -1,7 +1,7 @@
 <div class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="#"><b>Admin</b>LTE</a>
+            <a href="#"><b>Log In</b></a>
         </div>
 
         <div class="card">

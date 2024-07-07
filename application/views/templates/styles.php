@@ -573,7 +573,7 @@ form .btn {
         padding: 10px;
         justify-content: center;
         align-items: center;
-        gap: 20px;
+        gap: 30px;
         flex-shrink: 0;
     }
 
